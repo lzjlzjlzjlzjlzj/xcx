@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.write.TransactionWriteB">
+    <insert id="addOrderMapper" parameterType="com.domain.TransactionOrderMapper">
+        insert into b_order
+        values (#{jybkey},#{ddnumber})
+    </insert>
+
+    <insert id="addOrder" parameterType="com.domain.TransactionOrderMapper">
+        insert into b_transaction
+        values (#{ddnumber},#{tomoney},#{getmoney},#{buildtime},#{endtime},#{money},#{tomoneyok},#{getmoneyok})
+    </insert>
+</mapper>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.read.UserReadE">
+    <select id="getUserInfo" parameterType="com.request.GetUserInfoRequest" resultType="com.response.UserInfoResponse">
+      select * from E_user where jybkey=#{jybKey}
+    </select>
+
+    <select id="getUserCount" resultType="int">
+        select count(*) from E_user
+    </select>
+</mapper>

@@ -1,0 +1,9 @@
+server:
+  port: 1001
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1000/eureka
+spring:
+  application:
+    name: upload

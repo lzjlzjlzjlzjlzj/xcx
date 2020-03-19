@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.write.UserWriteB">
+    <sql id="user">
+        (jybkey,openid,nickname,gender,city,province,country,avatarurl,unionid,xyscore,px,gold)
+    </sql>
+    <sql id="userinfo">
+      #{jybKey},#{openId},#{nickName},#{gender},#{city},#{province},#{country},#{avatarUrl},#{unionId},
+      #{xyScore},#{px},#{gold}
+    </sql>
+    <insert id="addUser" parameterType="com.domain.UserInfoKey" >
+        insert into B_user <include refid="user"></include> values(<include refid="userinfo"></include>)
+    </insert>
+
+    <update id="updateUserXyScore" parameterType="com.request.updateUserXyScoreRequest">
+        update B_user set xyscore=#{xyScore} where jybkey=#{jybKey}
+    </update>
+
+    <update id="updateUserPx" parameterType="com.request.updateUserPxRequest">
+        update B_user set px=#{userPx} where jybkey=#{jybKey}
+    </update>
+
+    <update id="updateUserGold" parameterType="com.request.updateUserGoldRequest">
+        update B_user set gold=#{gold} where jybkey=#{jybKey}
+    </update>
+
+</mapper>
